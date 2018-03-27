@@ -1,0 +1,13 @@
+- name: "yum repo for nginx is required"
+  yum_repository:
+    name: nginx
+    description: nginx yum repository
+#    baseurl: http://nginx.org/packages/OS/OSRELEASE/$basearch/
+    baseurl: http://nginx.org/packages/centos/7/x86_64/
+    gpgcheck: no
+    enabled: yes
+
+- name: "make sure nginx is installed"
+  yum:
+    name: "nginx"
+    state: present
